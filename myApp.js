@@ -5,12 +5,15 @@ console.log("Hello world");
 //     res.send("Hello Express")
 // });
 let absolutePath = __dirname + '/views/index.html';
+let cssPath = __dirname + '/public';
+
+
+
+app.use(express.static(cssPath));
 
 app.get('/',function(req,res){
     res.sendFile(absolutePath)
 });
-
-
 
 
 
