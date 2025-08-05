@@ -14,13 +14,12 @@ let app = express();
 //     res.sendFile(absolutePath)
 // });
 // let jsonObject = {"message": "Hello json"};
-app.get('/json',(req, res) =>{
+app.get('/json',function(req, res){
     if(process.env.MESSAGE_STYLE === "uppercase" )
-        response = "Hello json".toUpperCase()
+        res.json({"message": "Hello json".toUpperCase()});
     else
-        response = "Hello json";
-    res.json({message: response})
-});
+        res.json({"message": "Hello json"});
+})
 
 
 
