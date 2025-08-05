@@ -12,6 +12,10 @@ app.use('/public',express.static(cssPath));
 app.get('/',function(req,res){
     res.sendFile(absolutePath)
 });
+let jsonObject = {"message": "Hello json"};
+app.get('/json',function(req,res){
+    res.json(jsonObject)
+});
 
 
 
