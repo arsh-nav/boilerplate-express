@@ -13,7 +13,7 @@ app.use('/public',express.static(cssPath));
 app.get('/',function(req,res){
     res.sendFile(absolutePath)
 });
-let jsonObject = {"message": "Hello json"};
+// let jsonObject = {"message": "Hello json"};
 app.get('/json',(req, res) =>{
     let message = "Hello json";
     if(process.env.MESSAGE_STYLE === 'uppercase'){
