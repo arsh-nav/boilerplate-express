@@ -9,11 +9,14 @@ require('dotenv').config();
 // let absolutePath = __dirname + '/views/index.html';
 
 
-app.use(function(req,res,next){
-    let requestLog = req.method + " "+ req.path + " - "+ req.ip;
-    console.log(requestLog);
-    next();
-});;
+app.get('/now', function(req, res, next) {
+    req.time = new Date().toString();
+//   req.string = req.time; // Hypothetical synchronous operation
+  console.log(req.time);
+  next();
+}, function(req, res) {
+  res.send({time: req.time});
+});
 
 
 // let jsonObject = {"message": "Hello json"};
