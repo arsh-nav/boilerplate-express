@@ -9,13 +9,12 @@ require('dotenv').config();
 // let absolutePath = __dirname + '/views/index.html';
 
 
-app.get('/now', function(req, res, next) {
-    req.time = new Date().toString();
+app.get('/:word/echo', function(req, res, next) {
+    // req.time = new Date().toString();
 //   req.string = req.time; // Hypothetical synchronous operation
-  console.log(req.time);
+//   console.log(req.time);
+    res.send({echo: req.params.word});
   next();
-}, function(req, res) {
-  res.send({time: req.time});
 });
 
 
