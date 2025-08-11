@@ -9,11 +9,8 @@ require('dotenv').config();
 // let absolutePath = __dirname + '/views/index.html';
 
 
-app.get('/:word/echo', function(req, res, next) {
-    // req.time = new Date().toString();
-//   req.string = req.time; // Hypothetical synchronous operation
-//   console.log(req.time);
-    res.send({echo: req.params.word});
+app.get('/name', function(req, res, next) {
+    res.send({name:req.query.first + " " +req.query.last})
   next();
 });
 
