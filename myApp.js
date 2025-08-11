@@ -42,30 +42,18 @@ let bodyParser = require('body-parser');
 
 
 app.use(bodyParser.urlencoded({extended: false}));
-app.use(bodyParser.json());
-app.post('/name', (req, res) => {
-  res.send('Hello ' + req.body.first + ' ' + req.body.last);
-});
+// app.use(bodyParser.json());
+// / GET handler for /name
+// app.get("/name", (req, res) => {
+//   const firstName = req.query.first;
+//   const lastName = req.query.last;
+//   res.json({ name: `${firstName} ${lastName}` });
+// });
 
+// POST handler for /name
+app.post("/name", function(req,res){
+  var string = req.body.first + ' ' + req.body.last;
+  res.json({name: string});
+})
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- module.exports = app;
+module.exports = app;
