@@ -27,7 +27,7 @@ app.get('/',function(req,res,next){
 //         res.json({"message": "Hello json"});
 // })
 
-module.exports = app;
+// module.exports = app;
 
 
 
