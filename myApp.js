@@ -7,21 +7,26 @@ require('dotenv').config();
 //     res.send("Hello Express")
 // });
 // let absolutePath = __dirname + '/views/index.html';
-// let cssPath = __dirname + '/public';
+let cssPath = __dirname;
 
-// app.use('/public',express.static(cssPath));
+app.use('/',express.static(cssPath));
 
-// app.get('/',function(req,res){
-//     res.sendFile(absolutePath)
-// });
+app.get('/',function(req,res,next){
+    let requestLog = req.method + " "+ req.path + " - "+ req.ip;
+    console.log(requestLog);
+    next();
+});
 // let jsonObject = {"message": "Hello json"};
-app.get('/json',function(req, res){
-    console.log(process.env.MESSAGE_STYLE);
-    if(process.env.MESSAGE_STYLE === "uppercase" )
-        res.json({"message": "Hello json".toUpperCase()});
-    else
-        res.json({"message": "Hello json"});
-})
+// console.log(process.env.MESSAGE_STYLE);
+
+// app.get('/json',function(req, res){
+    
+//     if(process.env.MESSAGE_STYLE === "uppercase" )
+//         res.json({"message": "Hello json".toUpperCase()});
+//     else
+//         res.json({"message": "Hello json"});
+// })
+
 module.exports = app;
 
 
